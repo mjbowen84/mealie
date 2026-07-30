@@ -9,7 +9,7 @@ permissions:
   packages: write
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: mealie
+  IMAGE_NAME: ${{ github.repository}}
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
