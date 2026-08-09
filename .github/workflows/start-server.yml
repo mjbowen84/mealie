@@ -16,5 +16,6 @@ jobs:
           username: ${{ secrets.DO_SSH_USERNAME }}
           key: ${{ secrets.DO_SSH_PRIVATE_KEY }}
           script: |
-            docker compose pull mealie
-            docker compose up -d mealie
+            cd /srv/mealie
+            docker compose pull
+            docker compose up -d
