@@ -1,0 +1,19 @@
+name: Start Docker Compose
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main-mjb
+      - ssh-action
+jobs:
+  start-docker-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.DO_SERVER_HOST_IP }}
+          username: ${{ secrets.DO_SSH_USERNAME }}
+          key: ${{ secrets.DO_SSH_PRIVATE_KEY }}
+          script: |
+            docker compose ls
